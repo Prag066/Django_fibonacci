@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+</head>
+<body>
+    <form method="POST" action="">
+        {% csrf_token %}
+        <input type="number" name="num">
+        <br><br><br><br><br><br>
+        <button type="submit">Submit</button>
+    </form>
+
+        {{context}}
+
+</body>
+</html>
+function validation(){
+            var x =document.forms["myform"]["val1"]
+            if (x!=charset){var a=document.getElementById('val1').value;
+            document.getElementById('demo').innerHTML = "should be only integer"  }else{document.getElementById('demo').innerHTML = ""}
+        }

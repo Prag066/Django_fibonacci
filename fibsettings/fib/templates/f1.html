@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>F1</title>
+    <style>
+        body{
+            color : white;
+            background-color: black;
+            text-align: center;
+            border: none;
+        }
+        h1{ 
+            font-size: 35px;
+            margin-top: 1%;
+        }
+        input{
+            width: 320px;
+            height: 50px;
+            border: none;
+            font-size: 40px;
+            opacity: 0.8;
+            background-color:#00ffff;
+            margin-top: 5%;
+        }
+        button{
+            border: none;
+            width: 100px;
+            height: 25px;
+            margin-top: 3%;
+        }
+        div{
+            color: #738c8c;
+            margin-top: 8%;
+
+        }
+        p{
+            color: white;}
+    </style>
+    
+</head>
+<body>
+
+    <h1>Enter a number to find the Fibonecci Sequence</h1>
+
+    <form method="POST" action="" name="myform">
+        {% csrf_token %}
+        <input type="number" id="val1" name="val1" onkeyup="validation()" required>
+        <p id="demo"></p>
+        <br>
+        <button type="submit"  name="sub">submit</button>
+    </form>
+    <div class="num">
+        <label>sequence - </label>{{num}}
+        
+    </div>
+    <div class="tdelta">
+        <label>duretion - </label>
+       Seconds:- {{tdelta.seconds}}
+       <br>
+   Microseconds:- {{tdelta.microseconds}}
+    
+    </div>
+<script>
+        
+</script>
+    
+</body>
+</html>
