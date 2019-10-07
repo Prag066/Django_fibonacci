@@ -7,6 +7,9 @@ from rest_framework import viewsets
 from rest_framework.response import Response
 from .serializer import FibSerializer,UserSerializer
 from django.contrib.auth.models import User
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework import permissions
+
 def main(request):
     arr = []
     if request.method == "POST":
@@ -73,11 +76,36 @@ def demo(request):
 
     return render(request, 'h.html', {'tdelta':[tdelta.seconds,tdelta.microseconds],'context': arr})
 
+@permission_classes((permissions.AllowAny,))
 class FibViewset(viewsets.ViewSet):
+    def list(self, request):
+        queryset = Fib_data.objects.all()
+        serializer = FibSerializer(queryset, many=True)
+        return Response(serializer.data)
+
+    def retrieve(self, request, pk=None):
+        queryset = Fib_data.objects.all()
+        user = get_object_or_404(queryset, pk=pk)
+        serializer = FibSerializer(user)
+        return Response(serializer.data)
     
     queryset = User.objects.all()
     serializer_class = FibSerializer
 
+
+
+@permission_classes((permissions.AllowAny,))
 class UserViewSet(viewsets.ViewSet):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
+    """
+    A simple ViewSet for listing or retrieving users.
+    """
+    def list(self, request):
+        queryset = User.objects.all()
+        serializer = UserSerializer(queryset, many=True)
+        return Response(serializer.data)
+
+    def retrieve(self, request, pk=None):
+        queryset = User.objects.all()
+        user = get_object_or_404(queryset, pk=pk)
+        serializer = UserSerializer(user)
+        return Response(serializer.data)
