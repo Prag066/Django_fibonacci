@@ -25,7 +25,7 @@ SECRET_KEY = 'ry4v(wj!*a-f@i)6*2)m4#0@9(dizcl&**$nf3lexhi7m9yaxk'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -84,22 +84,22 @@ WSGI_APPLICATION = 'fibsettings.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.sqlite3',
-#        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#    }
-#}
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql', 
-        'NAME': 'Prakhar',
-        'USER': 'Prakhar',
-        'PASSWORD': ' ',
-        'HOST': 'localhost',
-        'PORT': '3306',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+#DATABASES = {
+#    'default': {
+ #       'ENGINE': 'django.db.backends.mysql', 
+  #      'NAME': 'Prakhar',
+   #     'USER': 'Prakhar',
+    #    'PASSWORD': ' ',
+     #   'HOST': 'localhost',
+      #  'PORT': '3306',
+    #}
+#}
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
