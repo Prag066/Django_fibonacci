@@ -7,7 +7,7 @@ from rest_framework import viewsets
 from rest_framework.response import Response
 from .serializer import FibSerializer,UserSerializer
 from django.contrib.auth.models import User
-def f1(request):
+def main(request):
     arr = []
     if request.method == "POST":
         stime = datetime.now()
